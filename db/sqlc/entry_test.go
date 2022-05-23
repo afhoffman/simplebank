@@ -2,10 +2,10 @@ package db
 
 import (
 	"context"
-	"simplebank/util"
 	"testing"
 	"time"
 
+	"github.com/laserbeans741/simplebank-udemy/util"
 	"github.com/stretchr/testify/require"
 )
 

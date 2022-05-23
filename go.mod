@@ -1,4 +1,4 @@
-module github.com/laserbeans741/simplebank
+module github.com/laserbeans741/simplebank-udemy
 
 go 1.18
 
