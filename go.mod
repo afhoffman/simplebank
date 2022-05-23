@@ -1,4 +1,4 @@
-module simplebank
+module github.com/laserbeans741/simplebank
 
 go 1.18
 
