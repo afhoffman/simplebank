@@ -1,0 +1,3 @@
+To get mockgen to work...
+
+mockgen --build_flags=--mod=mod -destination db/mock/store.go github.com/laserbeans741/simplebank-udemy/db/sqlc Store
