@@ -10,6 +10,9 @@ FROM alpine:3.16
 WORKDIR /app
 
 COPY --from=builder /app/main .
+COPY --from=builder /app/app.env .
+
+ENV GIN_MODE=release
 
 EXPOSE 8080
 
