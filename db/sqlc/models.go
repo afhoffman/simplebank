@@ -5,7 +5,6 @@
 package db
 
 import (
-	"database/sql"
 	"time"
 
 	"github.com/google/uuid"
@@ -28,14 +27,14 @@ type Entry struct {
 }
 
 type Session struct {
-	ID           uuid.UUID      `json:"id"`
-	Username     sql.NullString `json:"username"`
-	RefreshToken string         `json:"refreshToken"`
-	UserAgent    string         `json:"userAgent"`
-	ClientIp     string         `json:"clientIp"`
-	IsBlocked    bool           `json:"isBlocked"`
-	ExpiresAt    time.Time      `json:"expiresAt"`
-	CreatedAt    time.Time      `json:"createdAt"`
+	ID           uuid.UUID `json:"id"`
+	Username     string    `json:"username"`
+	RefreshToken string    `json:"refreshToken"`
+	UserAgent    string    `json:"userAgent"`
+	ClientIp     string    `json:"clientIp"`
+	IsBlocked    bool      `json:"isBlocked"`
+	ExpiresAt    time.Time `json:"expiresAt"`
+	CreatedAt    time.Time `json:"createdAt"`
 }
 
 type Transfer struct {

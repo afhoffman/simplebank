@@ -7,7 +7,6 @@ package db
 
 import (
 	"context"
-	"database/sql"
 	"time"
 
 	"github.com/google/uuid"
@@ -29,13 +28,13 @@ RETURNING id, username, refresh_token, user_agent, client_ip, is_blocked, expire
 `
 
 type CreateSessionParams struct {
-	ID           uuid.UUID      `json:"id"`
-	Username     sql.NullString `json:"username"`
-	RefreshToken string         `json:"refreshToken"`
-	UserAgent    string         `json:"userAgent"`
-	ClientIp     string         `json:"clientIp"`
-	IsBlocked    bool           `json:"isBlocked"`
-	ExpiresAt    time.Time      `json:"expiresAt"`
+	ID           uuid.UUID `json:"id"`
+	Username     string    `json:"username"`
+	RefreshToken string    `json:"refreshToken"`
+	UserAgent    string    `json:"userAgent"`
+	ClientIp     string    `json:"clientIp"`
+	IsBlocked    bool      `json:"isBlocked"`
+	ExpiresAt    time.Time `json:"expiresAt"`
 }
 
 func (q *Queries) CreateSession(ctx context.Context, arg CreateSessionParams) (Session, error) {
