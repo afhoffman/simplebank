@@ -1,3 +1,11 @@
 To get mockgen to work...
 
-mockgen --build_flags=--mod=mod -destination db/mock/store.go github.com/laserbeans741/simplebank-udemy/db/sqlc Store
+mockgen --build_flags=--mod=mod -destination db/mock/store.go
+github.com/laserbeans741/simplebank-udemy/db/sqlc Store
+
+When deploying kubernetes cluster, need to also deploy:
+
+- nginx ingress
+	kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/aws/deploy.yaml
+- cert manager
+	kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.8.0/cert-manager.yaml
