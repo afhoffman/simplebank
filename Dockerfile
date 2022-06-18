@@ -11,6 +11,7 @@ FROM alpine:3.16
 WORKDIR /app
 
 COPY --from=builder /app/main .
+COPY --from=builder /app/doc/swagger/ ./doc/swagger
 COPY --from=builder /app/app.env .
 COPY --from=builder /app/start.sh .
 COPY --from=builder /app/wait-for.sh .
