@@ -43,10 +43,14 @@ proto:
     --go-grpc_out=pb --go-grpc_opt=paths=source_relative \
 		--grpc-gateway_out=pb \
 		--grpc-gateway_opt paths=source_relative \
+		--openapiv2_out=doc/swagger --openapiv2_opt=allow_merge,merge_file_name=simple_bank \
     proto/*.proto
 
 evans:
 	evans --host localhost --port 9090 -r repl
 
-.PHONY: postgres createdb dropdb migrateup migratedown sqlc test server mock migrateupone migratedownone dbdocs db_schema proto evans
+swagger:
+	docker run -it --rm -p 8080:8080 -e SWAGGER_JSON=/openapiv2/simple_bank.swagger.json -v $PWD/doc/swagger/:/openapiv2 swaggerapi/swagger-ui
+
+.PHONY: swagger postgres createdb dropdb migrateup migratedown sqlc test server mock migrateupone migratedownone dbdocs db_schema proto evans
 
