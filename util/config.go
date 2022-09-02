@@ -20,6 +20,11 @@ type Config struct {
 
 // LoadConfig reads configuration if path exists, or overrides with environment variables
 func LoadConfig(path string) (config Config, err error) {
+	// Could make this a little more robust:
+	// - Check if app.env exists
+	// - If it does, read it
+	// - If not, try to read the config from environment variables
+	// - If unable to get a complete config, throw an error and exit
 	viper.AddConfigPath(path)
 	viper.SetConfigName("app")
 	viper.SetConfigType("env")
